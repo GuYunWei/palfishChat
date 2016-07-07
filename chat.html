@@ -417,8 +417,7 @@
     })
     
     function updateUserList(user){
-//        console.log(user);
-        var uid = user.ctype == 1 ? (user.uid == h_m ? user.uid : user.touid) : user.sdialogid;
+        var uid = user.ctype == 1 ? (user.uid != h_m ? user.uid : user.touid) : user.sdialogid;
         var item = $("#userItem .chat_item[uid=" + uid + "]"), html = '';
         if (item.length == 0) {
             html += '' +
@@ -440,8 +439,8 @@
                 '</div>' +
                 '</div>';
             $('#userItem').prepend(html);
+            $(".box_bd").append("<div class='chatItems' uid='" + uid + "''></div>")
         }
     }
 </script>
-
 </html>
